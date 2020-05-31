@@ -66,7 +66,7 @@ const questions = [
 function init() {
     inquirer.prompt(questions).then((response)=>{
     
-    // this will create the first line and main header for the repo using response in RepoName
+// this creates the first line and main header for the repo using response in RepoName
     fs.appendFileSync("README.md", ("# " + response.repoName )+ '\n', function(err) { 
     
         if (err) { 
@@ -77,3 +77,51 @@ function init() {
         }
     
     })
+
+// this creates the second line of readme application developed by using reponse to githubname 
+fs.appendFileSync("README.md", ("This application was developed by: " + response.gitHubName + '\n') + '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
+
+// adds description of the project that the user enters on description prompt
+fs.appendFileSync("README.md", ( response.description ) + '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
+
+//creates a sub-header for installation and adds any instructions the user enters
+fs.appendFileSync("README.md", ("## Installation" + '\n' + response.installApp )+ '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
+
+// creates a sub-header for Application usage and adds any instructions the user enters
+fs.appendFileSync("README.md", ("## How to use the Application" + '\n' + response.appInstructions)+ '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
