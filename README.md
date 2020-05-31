@@ -13,7 +13,7 @@ In the terminal, it is as easy as navigating to the application folder, whether 
 ![Walkthrough in the Command Line](Walkthrough.gif)
 
 ## Issue Reporting and Contributing
-To contirbute or report any issues with this application, please send an email to ThomasKhomJohnson@gmail.com
+To contribute or report any issues with this application, please send an email to ThomasKhomJohnson@gmail.com
 
 ## Other Contibuting Developers:
 none
