@@ -1,9 +1,5 @@
 const fs = require("fs");
-// const axios = require("axios"); not needed 
 const inquirer = require("inquirer");
-// const generateMarkdown = require("./utils/generateMarkdown.js");
-
-
 
 const questions = [
     //ask user for name of the app 
@@ -65,3 +61,19 @@ const questions = [
     },
 
 ];
+
+
+function init() {
+    inquirer.prompt(questions).then((response)=>{
+    
+    // this will create the first line and main header for the repo using response in RepoName
+    fs.appendFileSync("README.md", ("# " + response.repoName )+ '\n', function(err) { 
+    
+        if (err) { 
+        console.log(err)
+        }
+        else {
+        console.log("Success")
+        }
+    
+    })
