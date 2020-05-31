@@ -19,4 +19,5 @@ To contirbute or report any issues with this application, please send an email t
 none
 
 ## License(s)
-MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
