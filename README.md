@@ -9,6 +9,9 @@ Git clone or Download and unzip the repo from Github. Afterwards, you will need 
 ## How to use the Application
 In the terminal, it is as easy as navigating to the application folder, whether you cloned or unizpped and using node. The command is node index.js and you will be prompted with questions in which you respond to generate your README.md
 
+## Walkthrough
+![Walkthrough in the Command Line](Walkthrough.gif)
+
 ## Issue Reporting and Contributing
 To contirbute or report any issues with this application, please send an email to ThomasKhomJohnson@gmail.com
 
