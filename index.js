@@ -2,7 +2,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 const questions = [
-    //ask user for name of the app 
+    // Ask user for name of the application
     {
       
         type: 'input',
@@ -10,14 +10,14 @@ const questions = [
         message: 'What is the name of your application? (This will be the main header of your README)',
      
     },
-    //asks user for github username 
+    // Asks user for github username 
     {
         type: 'input',
         name: 'gitHubName',
         message: 'What is your username on Github?',
      
     },
-    // asks for a description of the project 
+    // Asks for a description of the project 
     {
         type: 'input',
         message: 'Write a description of your application',
@@ -27,32 +27,32 @@ const questions = [
     // How do you install your app? 
     {
         type: 'input',
-        message: 'How does a user install your application? Provide instuctions here',
+        message: 'How does a user install your application? Provide instructions here',
         name: 'installApp',
      
     },
-   // How does a user use your application? 
+    // How does a someone use your application? 
     {
         type: 'input',
-        message: 'How does a user use your application? Provide instuctions here',
+        message: 'How does a user use your application? Provide instructions here',
         name: 'appInstructions',
      
     },
-    // How would a user of this application report an issue, or make a contribution to it? 
+    // How would a user report an Application issue, or make a contribution? 
     {
         type: 'input',
         message: 'Would you like you users to be able to report issues or contribute to this project? add instructions here.',
         name: 'appIssuesAndCont',
      
     },
-    // prompts what license user would like to use 
+    // Prompts what license user would like to use 
     {
         type: 'input',
         message: 'What license would you like to use? (Ex: MIT, GPL 3.0) If you do not wish to use a license type "none"',
         name: 'license',
      
     },
-    //Asks who else contributed to the application 
+    // Asks who else contributed to the application 
     {
         type: 'input',
         message: 'Who else contributed to your application? if none write "none" ',
@@ -66,7 +66,7 @@ const questions = [
 function init() {
     inquirer.prompt(questions).then((response)=>{
     
-// this creates the first line and main header for the repo using response in RepoName
+// This creates the first line and main header for the repo using response in RepoName
     fs.appendFileSync("README.md", ("# " + response.repoName )+ '\n', function(err) { 
     
         if (err) { 
@@ -78,7 +78,7 @@ function init() {
     
     })
 
-// this creates the second line of readme application developed by using reponse to githubname 
+// This creates the second line of README 'developed by' using reponse to githubname 
 fs.appendFileSync("README.md", ("This application was developed by: " + response.gitHubName + '\n') + '\n', function(err) { 
 
     if (err) { 
@@ -90,7 +90,7 @@ fs.appendFileSync("README.md", ("This application was developed by: " + response
 
 })
 
-// adds description of the project that the user enters on description prompt
+// Adds description of the project that the user enters on description prompt
 fs.appendFileSync("README.md", ( response.description ) + '\n', function(err) { 
 
     if (err) { 
@@ -102,7 +102,7 @@ fs.appendFileSync("README.md", ( response.description ) + '\n', function(err) {
 
 })
 
-//creates a sub-header for installation and adds any instructions the user enters
+// Creates a sub-header for installation and adds any instructions the user enters
 fs.appendFileSync("README.md", ("## Installation" + '\n' + response.installApp )+ '\n', function(err) { 
 
     if (err) { 
@@ -114,7 +114,7 @@ fs.appendFileSync("README.md", ("## Installation" + '\n' + response.installApp )
 
 })
 
-// creates a sub-header for Application usage and adds any instructions the user enters
+// Creates a sub-header for Application usage and adds any instructions the user enters
 fs.appendFileSync("README.md", ("## How to use the Application" + '\n' + response.appInstructions)+ '\n', function(err) { 
 
     if (err) { 
@@ -125,3 +125,45 @@ fs.appendFileSync("README.md", ("## How to use the Application" + '\n' + respons
     }
 
 })
+
+// Creates a sub-header for Issue Reporting and Contributing and adds any instructions the user enters
+fs.appendFileSync("README.md", ("## Issue Reporting and Contributing" + '\n' + response.appIssuesAndCont)+ '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
+
+// Creates a sub-header for other contributing members 
+fs.appendFileSync("README.md", ("## Other Contibuting Developers:" + '\n' + response.contributors)+ '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
+
+// Creates a sub-header for licenses and adds any licenses entered 
+fs.appendFileSync("README.md", ("## License(s)" + '\n' + response.license)+ '\n', function(err) { 
+
+    if (err) { 
+    console.log(err)
+    }
+    else {
+    console.log("Success")
+    }
+
+})
+
+})
+}
+
+// Runs function to generate README 
+init();
